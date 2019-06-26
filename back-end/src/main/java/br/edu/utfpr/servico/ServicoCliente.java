@@ -39,14 +39,13 @@ private List<PaisDTO> paises;
    public ServicoCliente() {
         paises = Stream.of(
             PaisDTO.builder().id(1).nome("Brasil").sigla("BR").codigoTelefone(55).build(),
-            PaisDTO.builder().id(2).nome("Estados Unidos da América").sigla("EUA").codigoTelefone(33).build(),
-            PaisDTO.builder().id(3).nome("Reino Unido").sigla("RU").codigoTelefone(44).build()
+           
         ).collect(Collectors.toList());
         
        clientes = Stream.of(
             ClienteDTO.builder().id(1).nome("Daniel").idade(1).limiteCredito(10).telefone("43998989").pais((PaisDTO) paises).build(),
-            ClienteDTO.builder().id(1).nome("Jhon Silva").idade(19).limiteCredito(110).telefone("43998555").build(),
-            ClienteDTO.builder().id(1).nome("Bob Goncalves").idade(18).limiteCredito(1110).telefone("43998777").build()
+            ClienteDTO.builder().id(1).nome("Jhon Silva").idade(19).limiteCredito(110).telefone("43998555").pais((PaisDTO) paises).build(),
+            ClienteDTO.builder().id(1).nome("Bob Goncalves").idade(18).limiteCredito(1110).telefone("43998777").pais((PaisDTO) paises).build()
         ).collect(Collectors.toList());
     }
 
